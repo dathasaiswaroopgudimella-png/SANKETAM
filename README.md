@@ -111,6 +111,21 @@ python -m http.server 3000
 ```
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+### Environment Variables for Vercel
+
+In your Vercel Project Settings (**Settings → Environment Variables**), add only the following required keys:
+
+| Variable Name | Required | Description |
+| :--- | :--- | :--- |
+| `GEMINI_API_KEY` | **Yes** | Google Gemini API key for real-time speech-to-text & Indic tone softening. |
+| `OPENROUTER_API_KEY` | *Optional* | Multi-model fallback provider (Claude / DeepSeek). |
+| `NEXT_PUBLIC_SUPABASE_URL` | *Optional* | Supabase project URL for storing routine preferences & history. |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | *Optional* | Supabase public client key. |
+| `NEXT_PUBLIC_APP_URL` | *Optional* | Deployment URL (e.g. `https://sanketam.vercel.app`). |
+| `NODE_ENV` | *Optional* | Set to `production`. |
+
+A pre-populated `.env.local` is provided in the project folder for quick copy-pasting, and a `.env.example` template is tracked in the repository.
+
 ---
 
 ## Repository
