@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanketam (సంకేతం) — Privacy-First Family Connection Platform</title>
+  
+  <meta name="description" content="Stay close to family, without losing your independence. Transforming 20-second daily voice notes into warm Indic reassurance for parents, without spying or tracking.">
+  <meta name="theme-color" content="#D95338">
+  
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D95338'><path d='M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z'/></svg>">
+  
+  <!-- OpenGraph Metadata for Vercel / Social Preview -->
+  <meta property="og:title" content="Sanketam — Privacy-First Family Connection">
+  <meta property="og:description" content="Stay close to family without losing your independence. Culturally softened Indic reassurance for Indian parents.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./assets/slides/slide_1.jpg">
+
+  <!-- Modern Typography Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Application Stylesheet -->
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <!-- Top App Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <a href="#" class="brand-wrapper">
+        <div class="brand-logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+          </svg>
+        </div>
+        <div class="brand-text-block">
+          <div class="brand-title">
+            Sanketam <span class="script">సంకేతం</span>
+          </div>
+          <span class="brand-tagline">Stay close to family, without losing your independence.</span>
+        </div>
+      </a>
+
+      <!-- Master View Mode Selector (Dual / Youth / Senior) -->
+      <nav class="view-mode-selector" aria-label="Perspective view selection">
+        <button class="mode-nav-btn active" data-mode="dual" title="Side-by-side simulation">
+          <span>👥</span>
+          <span>Dual View</span>
+        </button>
+        <button class="mode-nav-btn youth-mode" data-mode="youth" title="Teenager & Young Adult mobile view">
+          <span>🎒</span>
+          <span>Teen & Youth</span>
+        </button>
+        <button class="mode-nav-btn senior-mode" data-mode="senior" title="Elderly parent high-contrast audio portal">
+          <span>👵</span>
+          <span>Senior Portal</span>
+        </button>
+      </nav>
+
+      <div class="header-actions">
+        <div class="badge-privacy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <span>No Spying · No GPS · 100% Consent</span>
+        </div>
+
+        <button id="btnOpenDeck" class="btn-secondary-pill btn-deck-trigger">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect width="18" height="14" x="3" y="3" rx="2"/>
+            <path d="m9 8 7 4-7 4Z"/>
+          </svg>
+          <span>Pitch Deck (12 Slides)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-wrapper">
+
+    <!-- Scenarios Bar: Real Life Situations -->
+    <section class="scenarios-card">
+      <div class="scenarios-header">
+        <div class="scenarios-label">
+          <span>Explore Real-Life Personas</span>
+          <span class="scenarios-badge">Live Interactive Simulation</span>
+        </div>
+        <span style="font-size:0.78rem;color:var(--text-muted);">Select a situation to observe how raw daily stress converts into parental reassurance</span>
+      </div>
+      <div class="scenarios-list" id="scenarioPillsList">
+        <!-- Rendered dynamically via app.js -->
+      </div>
+    </section>
+
+    <!-- Master Simulator Area -->
+    <section class="simulator-area">
+      <div class="simulator-grid">
+
+        <!-- LEFT COLUMN: YOUNG ADULT EXPERIENCE (THE CONSENT GATE) -->
+        <article class="experience-column youth-column">
+          <div class="column-header">
+            <div class="column-meta">
+              <div class="avatar-badge avatar-youth">🎒</div>
+              <div class="column-title-group">
+                <h2>Young Adult View</h2>
+                <p id="youthPersonaText">Ananya · 24 · Software Engineer @ Bengaluru</p>
+              </div>
+            </div>
+            <div class="status-indicator">
+              <span class="pulse-dot"></span>
+              <span>You Hold 100% Control</span>
+            </div>
+          </div>
+
+          <!-- Step 1: Voice Note Capture -->
+          <div class="step-card">
+            <div class="step-label-row">
+              <span class="step-number">Step 1 · Voice Note (15–20s)</span>
+              <span style="font-size:0.75rem;color:var(--text-muted);">Spontaneous & Unfiltered</span>
+            </div>
+
+            <div class="recorder-box">
+              <div class="recorder-controls">
+                <button id="btnRecordMain" class="btn-record-main" title="Tap to Record Live Voice Note">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                    <line x1="12" x2="12" y1="19" y2="22"/>
+                  </svg>
+                </button>
+                <div id="recordTimer" class="record-timer">0:00</div>
+              </div>
+
+              <!-- Animated Waveform Canvas -->
+              <div class="waveform-container">
+                <canvas id="waveformCanvas" width="480" height="64"></canvas>
+                <div class="waveform-placeholder-text">Tap microphone to record your live 20-second note</div>
+              </div>
+
+              <!-- Raw Note Transcript Display -->
+              <div class="transcript-preview-box">
+                <div class="transcript-meta">
+                  <span class="transcript-label">Raw Voice Note (Captured)</span>
+                  <span id="rawAudioDuration" style="font-size:0.72rem;font-family:monospace;color:var(--text-muted);">0:19</span>
+                </div>
+                <p id="rawQuoteText" class="raw-quote-text">
+                  "Ugh, Bangalore traffic was insane today. Got stuck on ORR for almost 2 hours. Super tired, but I reached my PG safely, just had curd rice and potato fry. Going straight to bed. Talk tomorrow."
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Disclosure Level Selector -->
+          <div class="step-card">
+            <div class="step-label-row">
+              <span class="step-number">Step 2 · Choose Disclosure Level</span>
+              <span style="font-size:0.75rem;color:var(--text-muted);">You choose how much to share</span>
+            </div>
+
+            <div class="disclosure-options-grid">
+              <div class="disclosure-card" data-level="level1">
+                <div class="disclosure-title">
+                  <span>🛡️</span>
+                  <span>Quick Safe Ping</span>
+                </div>
+                <p class="disclosure-desc">Only confirms you reached and are safe. Zero extra details.</p>
+              </div>
+
+              <div class="disclosure-card active" data-level="level2">
+                <div class="disclosure-title">
+                  <span>🍲</span>
+                  <span>Dinner & Routine</span>
+                </div>
+                <p class="disclosure-desc">Confirms arrival, meal status, and tomorrow's call plan.</p>
+              </div>
+
+              <div class="disclosure-card" data-level="level3">
+                <div class="disclosure-title">
+                  <span>💬</span>
+                  <span>Warm Reflection</span>
+                </div>
+                <p class="disclosure-desc">Shares work milestones, thoughtful care, and weekend plan.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Target Language Selector -->
+          <div class="step-card">
+            <div class="step-label-row">
+              <span class="step-number">Step 3 · Parent's Native Language</span>
+              <span style="font-size:0.75rem;color:var(--text-muted);">AI Softens & Translates</span>
+            </div>
+
+            <div class="language-selector-wrap">
+              <button class="lang-btn active" data-lang="telugu">తెలుగు (Telugu)</button>
+              <button class="lang-btn" data-lang="hindi">हिन्दी (Hindi)</button>
+              <button class="lang-btn" data-lang="tamil">தமிழ் (Tamil)</button>
+              <button class="lang-btn" data-lang="kannada">ಕನ್ನಡ (Kannada)</button>
+              <button class="lang-btn" data-lang="marathi">मराठी (Marathi)</button>
+              <button class="lang-btn" data-lang="bengali">বাংলা (Bengali)</button>
+              <button class="lang-btn" data-lang="english">English</button>
+            </div>
+          </div>
+
+          <!-- Step 4: The Consent Gate & Dispatch Approval -->
+          <div class="consent-approval-card">
+            <div class="softened-preview-banner">
+              <div class="softened-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+                <span>AI Softened Translation (Preview)</span>
+              </div>
+              <span style="font-size:0.72rem;color:var(--text-muted);">Calm & culturally respectful</span>
+            </div>
+
+            <div class="translated-output-box">
+              <div id="translatedOutputIndic">
+                అమ్మా, ఆఫీస్ నుంచి రూమ్ కి క్షేమంగా చేరుకున్నాను. ట్రాఫిక్ కొంచెం ఎక్కువగా ఉంది కానీ పెరుగు అన్నం తిన్నాను. మీరు సమయానికి మందులు వేసుకుని పడుకోండి. రేపు ఉదయం కాల్ చేస్తాను! 🙏
+              </div>
+              <div id="translatedOutputSub" class="translation-english-subtext">
+                Mom, reached room safely from office. Traffic was heavy but had curd rice. Please take medicines on time and sleep. Calling tomorrow morning! 🙏
+              </div>
+            </div>
+
+            <!-- Non-negotiable consent checkbox -->
+            <label class="consent-checkbox-wrap">
+              <input type="checkbox" id="consentCheckbox" checked>
+              <span class="consent-text">
+                <strong>I review and approve this update.</strong> Sanketam will never share raw audio or unspoken thoughts without your explicit tap.
+              </span>
+            </label>
+
+            <!-- Primary Approval Button -->
+            <button id="btnSendApproval" class="btn-send-approval">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 2L11 13"/>
+                <path d="M22 2l-7 20-4-9-9-4 20-7z"/>
+              </svg>
+              <span>Approve & Send to Parents</span>
+            </button>
+          </div>
+
+        </article>
+
+        <!-- RIGHT COLUMN: PARENT EXPERIENCE (REASSURANCE WITHOUT CALLING) -->
+        <article class="experience-column parent-column">
+          <div class="column-header">
+            <div class="column-meta">
+              <div class="avatar-badge avatar-parent">🏡</div>
+              <div class="column-title-group">
+                <h2>Parent's Receiving View</h2>
+                <p>Peace of mind delivered without constant checking-up</p>
+              </div>
+            </div>
+
+            <!-- Channel Switcher Tabs -->
+            <div class="parent-channel-switch">
+              <button class="channel-tab-btn" data-channel="whatsapp">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                </svg>
+                <span>WhatsApp</span>
+              </button>
+              <button class="channel-tab-btn active" data-channel="senior">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 16v-4M12 8h.01"/>
+                </svg>
+                <span>Senior Portal</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- CHANNEL A: WHATSAPP SIMULATION -->
+          <div id="waContainer" class="wa-phone-container" style="display:none;">
+            <div class="wa-header">
+              <div class="wa-profile-info">
+                <div class="wa-avatar">❤️</div>
+                <div class="wa-contact-details">
+                  <span class="wa-contact-name">
+                    Sanketam Family
+                    <span class="wa-verified-badge" title="Official Verified Reassurance Routine">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                      </svg>
+                    </span>
+                  </span>
+                  <span id="waContactSubtitle" class="wa-status-text">Ananya · Sanketam Daily Reassurance</span>
+                </div>
+              </div>
+              <div style="font-size:1.1rem;cursor:pointer;opacity:0.9;">⋮</div>
+            </div>
+
+            <div class="wa-chat-body">
+              <div class="wa-encryption-pill">
+                🔒 Messages and updates are consent-verified and end-to-end encrypted. No GPS tracking or private messages are accessed.
+              </div>
+
+              <!-- WhatsApp Message Bubble -->
+              <div id="waMessageCard" class="wa-message-card">
+                <div class="wa-audio-player">
+                  <button id="waPlayBtn" class="wa-play-btn" title="Listen to Indic audio update">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                  </button>
+                  <div class="wa-audio-track">
+                    <div class="wa-fake-wave">
+                      <div class="wa-fake-bar active" style="height:60%;"></div>
+                      <div class="wa-fake-bar active" style="height:90%;"></div>
+                      <div class="wa-fake-bar active" style="height:45%;"></div>
+                      <div class="wa-fake-bar active" style="height:80%;"></div>
+                      <div class="wa-fake-bar active" style="height:100%;"></div>
+                      <div class="wa-fake-bar" style="height:55%;"></div>
+                      <div class="wa-fake-bar" style="height:70%;"></div>
+                      <div class="wa-fake-bar" style="height:35%;"></div>
+                      <div class="wa-fake-bar" style="height:85%;"></div>
+                      <div class="wa-fake-bar" style="height:40%;"></div>
+                      <div class="wa-fake-bar" style="height:65%;"></div>
+                      <div class="wa-fake-bar" style="height:95%;"></div>
+                      <div class="wa-fake-bar" style="height:50%;"></div>
+                      <div class="wa-fake-bar" style="height:30%;"></div>
+                    </div>
+                    <span class="wa-audio-time">0:19 · Audio Reassurance</span>
+                  </div>
+                </div>
+
+                <p id="waMessageText" class="wa-message-text">
+                  అమ్మా, ఆఫీస్ నుంచి రూమ్ కి క్షేమంగా చేరుకున్నాను. ట్రాఫిక్ కొంచెం ఎక్కువగా ఉంది కానీ పెరుగు అన్నం తిన్నాను. మీరు సమయానికి మందులు వేసుకుని పడుకోండి. రేపు ఉదయం కాల్ చేస్తాను! 🙏
+                </p>
+
+                <div class="wa-message-footer">
+                  <span id="waTimestamp">9:42 PM</span>
+                  <span style="color:#53BDEB;font-weight:bold;letter-spacing:-2px;">✓✓</span>
+                </div>
+              </div>
+
+              <!-- Quick Replies for Parents -->
+              <div style="margin-top:auto;">
+                <span style="font-size:0.75rem;color:var(--text-muted);display:block;margin-bottom:0.35rem;">
+                  Parent Quick Blessings (1-tap reassurance back to child):
+                </span>
+                <div class="wa-reactions-row">
+                  <button class="wa-reply-chip">బాగుంది కన్నా ❤️</button>
+                  <button class="wa-reply-chip">Take rest beta 🙏</button>
+                  <button class="wa-reply-chip">Ate your dinner? 🍲</button>
+                  <button class="wa-reply-chip">God bless you ✨</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CHANNEL B: SENIOR-FRIENDLY ACCESSIBLE PORTAL -->
+          <div id="seniorContainer" class="senior-portal-container">
+            <div class="senior-status-card">
+              <div class="senior-status-info">
+                <h3 id="seniorSenderName">Ananya is Safe</h3>
+                <p id="seniorTimestamp">Received Today at 9:42 PM</p>
+              </div>
+              <div class="senior-status-icon">🛡️</div>
+            </div>
+
+            <!-- Trio-Status Badges -->
+            <div class="senior-trio-indicators">
+              <div class="senior-trio-pill">
+                <span class="icon">🏠</span>
+                <span id="tagArrived">PG Safe</span>
+              </div>
+              <div class="senior-trio-pill">
+                <span class="icon">🍲</span>
+                <span id="tagDinner">Dinner Done</span>
+              </div>
+              <div class="senior-trio-pill">
+                <span class="icon">😴</span>
+                <span id="tagHealth">Resting Well</span>
+              </div>
+            </div>
+
+            <!-- Accessible Voice Action Box -->
+            <div class="senior-voice-action-box">
+              <p style="font-size:1.1rem;color:var(--text-secondary);font-weight:600;">
+                Tap below to listen to your child's update in your native tongue:
+              </p>
+              <button id="btnSeniorListen" class="btn-senior-listen">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+                <span id="seniorListenText">Listen to Update (వినండి)</span>
+              </button>
+            </div>
+
+            <!-- Large Indic Readable Message -->
+            <div id="seniorReadableCard" class="senior-message-readable-text">
+              <span id="seniorMessageText">
+                అమ్మా, ఆఫీస్ నుంచి రూమ్ కి క్షేమంగా చేరుకున్నాను. ట్రాఫిక్ కొంచెం ఎక్కువగా ఉంది కానీ పెరుగు అన్నం తిన్నాను. మీరు సమయానికి మందులు వేసుకుని పడుకోండి. రేపు ఉదయం కాల్ చేస్తాను! 🙏
+              </span>
+            </div>
+
+            <!-- 1-Tap Blessings Bar -->
+            <div class="senior-quick-blessing-bar">
+              <span class="senior-blessing-label">Send a 1-tap blessing to your child:</span>
+              <div class="senior-blessing-buttons">
+                <button class="btn-senior-blessing">
+                  <span>❤️</span>
+                  <span>క్షేమంగా ఉండు</span>
+                </button>
+                <button class="btn-senior-blessing">
+                  <span>🙏</span>
+                  <span>మంచి నిద్రపో</span>
+                </button>
+                <button class="btn-senior-blessing">
+                  <span>🍲</span>
+                  <span>బాగా తిన్నావా?</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Lower Section: Business Model & Monetization Tiers -->
+    <section class="metrics-section">
+      <div class="metrics-section-header">
+        <div>
+          <h2>Business Model & Pilot Architecture</h2>
+          <p>Simple to explain, natural to pay for. Built for India's 450M internal migrants and 35M NRIs worldwide.</p>
+        </div>
+        <div style="display:flex;gap:0.75rem;">
+          <div class="badge-privacy" style="background:#FFF7ED;color:#C2410C;border-color:#FDBA74;">
+            Market: 450M Migrants · $120B Diaspora
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Free Explorer -->
+        <div class="pricing-card">
+          <span class="plan-tier-name">Free Explorer</span>
+          <div class="plan-price-block">
+            <span class="plan-price">₹0</span>
+            <span class="plan-cycle">/ forever</span>
+          </div>
+          <p style="font-size:0.78rem;color:var(--text-muted);">
+            One "I'm safe" ping per week. Enough to try the habit, not enough to replace it.
+          </p>
+          <ul class="plan-feature-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>1 weekly safety update</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Basic WhatsApp text</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>1 parent contact</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Family Plan (Featured) -->
+        <div class="pricing-card featured">
+          <span class="featured-pill">POPULAR IN INDIA</span>
+          <span class="plan-tier-name" style="color:var(--primary-saffron);">Family Plan</span>
+          <div class="plan-price-block">
+            <span class="plan-price">₹149</span>
+            <span class="plan-cycle">/ month</span>
+          </div>
+          <p style="font-size:0.78rem;color:var(--text-muted);">
+            Unlimited daily reassurance routines for the young professional and parents.
+          </p>
+          <ul class="plan-feature-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Unlimited daily voice notes</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>All Indian languages (Telugu, Hindi, Tamil, etc.)</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Medicine & call reminders for parents</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Multi-family broadcast (Mom, Dad, Grandparents)</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- NRI Global -->
+        <div class="pricing-card">
+          <span class="plan-tier-name">NRI Global</span>
+          <div class="plan-price-block">
+            <span class="plan-price">₹399</span>
+            <span class="plan-cycle">/ month ($4.80)</span>
+          </div>
+          <p style="font-size:0.78rem;color:var(--text-muted);">
+            Timezone-intelligent delivery across US, UK, Canada, Australia, and Gulf.
+          </p>
+          <ul class="plan-feature-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Timezone-smart morning delivery</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Indian festival voice greetings</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>High-fidelity Indic audio synthesis</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Institutional -->
+        <div class="pricing-card">
+          <span class="plan-tier-name">Institutional</span>
+          <div class="plan-price-block">
+            <span class="plan-price">₹49</span>
+            <span class="plan-cycle">/ student / mo</span>
+          </div>
+          <p style="font-size:0.78rem;color:var(--text-muted);">
+            Hostels, coaching academies (Kota/Hyderabad), and enterprise campus relocations.
+          </p>
+          <ul class="plan-feature-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Co-branded family wellness perk</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Campus onboarding support</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Emergency escalation protocol</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PRESENTATION SLIDE DECK MODAL (12 SLIDES) -->
+  <div id="deckModal" class="modal-backdrop">
+    <div class="deck-modal-container">
+      <div class="deck-modal-header">
+        <div class="deck-header-info">
+          <h3>Sanketam — Concept & Pitch Deck</h3>
+          <span id="deckSlideCounter" class="deck-slide-counter">Slide 1 of 12</span>
+        </div>
+        <button id="btnCloseDeck" class="btn-close-modal" title="Close presentation (Esc)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="deck-modal-body">
+        <div class="slide-display-frame">
+          <img id="slideImgDisplay" src="./assets/slides/slide_1.jpg" alt="Sanketam Slide Deck">
+        </div>
+
+        <div class="deck-navigation-bar">
+          <button id="btnPrevSlide" class="deck-nav-btn" disabled>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+            <span>Previous Slide</span>
+          </button>
+          
+          <span style="font-size:0.8rem;color:var(--text-muted);">Use ← and → arrow keys to navigate</span>
+
+          <button id="btnNextSlide" class="deck-nav-btn">
+            <span>Next Slide</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+
+        <!-- Thumbnails Strip -->
+        <div id="slideThumbsTray" class="slide-thumbnails-tray">
+          <!-- Rendered dynamically via app.js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <p>
+      <strong>Sanketam (సంకేతం / संकेतम्)</strong> · Privacy-First Family Connection Platform · Built with ❤️ for families across India and the diaspora · 
+      <a href="https://github.com/dathasaiswaroopgudimella-png/SANKETAM" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+    </p>
+  </footer>
+
+  <!-- Application Script -->
+  <script src="./app.js"></script>
+</body>
+</html>

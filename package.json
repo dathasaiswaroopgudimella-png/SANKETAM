@@ -1,0 +1,26 @@
+{
+  "name": "sanketam-family-connection",
+  "version": "1.0.0",
+  "description": "Sanketam — Privacy-first family connection app for young adults and remote parents.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve .",
+    "build": "echo 'Sanketam static build ready for Vercel deployment'"
+  },
+  "keywords": [
+    "family",
+    "privacy-first",
+    "parent-care",
+    "india",
+    "indic-ai",
+    "voice-notes",
+    "consent"
+  ],
+  "author": "Datha Sai Swaroop Gudimella",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dathasaiswaroopgudimella-png/SANKETAM.git"
+  }
+}
